@@ -14,6 +14,9 @@
 		EB6D10D824632DBB00A2F0EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB6D10D624632DBB00A2F0EC /* LaunchScreen.storyboard */; };
 		EB6D10E424632F6100A2F0EC /* GigsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D10E324632F6100A2F0EC /* GigsTableViewController.swift */; };
 		EB6D10E624633B3600A2F0EC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D10E524633B3600A2F0EC /* LoginViewController.swift */; };
+		EB6D10E8246345A900A2F0EC /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D10E7246345A900A2F0EC /* Bearer.swift */; };
+		EB6D10EA2463462800A2F0EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D10E92463462800A2F0EC /* User.swift */; };
+		EB6D10ED2463469A00A2F0EC /* GigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D10EC2463469A00A2F0EC /* GigController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		EB6D10D924632DBB00A2F0EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB6D10E324632F6100A2F0EC /* GigsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigsTableViewController.swift; sourceTree = "<group>"; };
 		EB6D10E524633B3600A2F0EC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EB6D10E7246345A900A2F0EC /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		EB6D10E92463462800A2F0EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EB6D10EC2463469A00A2F0EC /* GigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,8 @@
 		EB6D10E124632E7500A2F0EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EB6D10E7246345A900A2F0EC /* Bearer.swift */,
+				EB6D10E92463462800A2F0EC /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -98,6 +106,7 @@
 		EB6D10E224632E8400A2F0EC /* API Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EB6D10EC2463469A00A2F0EC /* GigController.swift */,
 			);
 			path = "API Controller";
 			sourceTree = "<group>";
@@ -173,7 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB6D10E8246345A900A2F0EC /* Bearer.swift in Sources */,
+				EB6D10ED2463469A00A2F0EC /* GigController.swift in Sources */,
 				EB6D10E624633B3600A2F0EC /* LoginViewController.swift in Sources */,
+				EB6D10EA2463462800A2F0EC /* User.swift in Sources */,
 				EB6D10CC24632DB000A2F0EC /* AppDelegate.swift in Sources */,
 				EB6D10CE24632DB000A2F0EC /* SceneDelegate.swift in Sources */,
 				EB6D10E424632F6100A2F0EC /* GigsTableViewController.swift in Sources */,
