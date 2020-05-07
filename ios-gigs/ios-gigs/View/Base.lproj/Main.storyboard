@@ -26,7 +26,7 @@
         <!--New Gig-->
         <scene sceneID="dX7-Px-5Xg">
             <objects>
-                <viewController id="jFT-Dn-yaD" sceneMemberID="viewController">
+                <viewController id="jFT-Dn-yaD" customClass="GigDetailViewController" customModule="ios_gigs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1pc-yJ-ADR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qkh-8Q-XTW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Gig" id="EP2-MZ-QId"/>
+                    <navigationItem key="navigationItem" title="New Gig" id="EP2-MZ-QId">
+                        <barButtonItem key="leftBarButtonItem" title="Gigs" image="chevron.left" catalog="system" id="pJg-FI-353"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iUL-ma-41P">
+                            <connections>
+                                <action selector="saveButton:" destination="jFT-Dn-yaD" id="g3Y-d8-J5g"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="mBa-Ha-iot" id="7Tr-Ie-Bot"/>
+                        <outlet property="descriptionTextView" destination="auf-RD-gu9" id="aqS-cp-QB4"/>
+                        <outlet property="jobTitleTextField" destination="Ayp-Tn-PTC" id="F2j-Q7-FKg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJa-00-BRh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,4 +139,7 @@
             <point key="canvasLocation" x="1934.7826086956522" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+    </resources>
 </document>

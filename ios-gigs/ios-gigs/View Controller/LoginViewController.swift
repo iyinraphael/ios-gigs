@@ -118,6 +118,29 @@ class LoginViewController: UIViewController {
                         }
                     }
                 })
+            } else {
+                gigController?.signIn(with: user, completion: { result in
+                    do {
+                       let success = try result.get()
+                        if success {
+                            DispatchQueue.main.async {
+                                 self.dismiss(animated: true, completion: nil)
+                            }
+                        }
+                            
+                    } catch {
+                        if let error = error as? GigController.NetworkError {
+                            switch error {
+                            case .failedSignIn:
+                                print("failed to sign In")
+                            case .noData, .noToken:
+                                print("Failed to sign in, try again")
+                            default:
+                                print("Failed")
+                            }
+                        }
+                    }
+                })
             }
         
         }
