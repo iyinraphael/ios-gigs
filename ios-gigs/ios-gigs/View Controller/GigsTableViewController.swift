@@ -12,6 +12,7 @@ class GigsTableViewController: UIViewController {
 
     //MARK: - Properties
     var tableView: UITableView!
+    let gigController = GigController()
     
     override func loadView() {
         super.loadView()
@@ -33,6 +34,18 @@ class GigsTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let bearer = gigController.bearer {
+            
+        }
+        
+        let loginViewController = LoginViewController()
+        self.present(loginViewController, animated: true) {
+            loginViewController.gigController = self.gigController
+        }
     }
     
     @objc func addItem() {

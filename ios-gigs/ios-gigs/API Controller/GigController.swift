@@ -21,7 +21,7 @@ class GigController {
     
     //MARK: - Propeties
     var bearer: Bearer?
-    private let baseURL = URL(string: " https://lambdagigapi.herokuapp.com/api")!
+    private let baseURL = URL(string: "https://lambdagigapi.herokuapp.com/api")!
     let jsonEncoder = JSONEncoder()
     
     //MARK: - Methods
@@ -43,10 +43,11 @@ class GigController {
                     return
                 }
                 
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                    print("Sign up successful")
-                    completion(.success(true))
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    print("Sign faliled")
+                    return
                 }
+             completion(.success(true))
             }
             dataTask.resume()
             
