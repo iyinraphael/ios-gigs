@@ -125,8 +125,29 @@ class GigController {
         request.httpMethod = HTTPMethod.get.rawValue
         request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: <#T##String#>)
         
-        let dataTask
-        
+        let dataTask = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let error = error {
+                print("Error getting data \(error)")
+                completion(.failure(.noData))
+            }
+            
+            guard let data = data else {
+                print("No data response from server")
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                self.jsonDecoder.dateDecodingStrategy = .iso8601
+                let allGigs = try self.jsonDecoder.decode([Gig].self, from: data)
+                self.gigs = allGigs
+                completion(.success(self.gigs))
+            } catch {
+                print("error occured decoding: \(error)")
+                completion(.failure(.tryAgain))
+            }
+            
+        }
+        dataTask.resume()
     }
     
     

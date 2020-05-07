@@ -13,6 +13,9 @@ class GigsTableViewController: UIViewController {
     //MARK: - Properties
     var tableView: UITableView!
     let gigController = GigController()
+    var gigs = [Gig]()
+    let reuseId = "cell"
+   
     
     override func loadView() {
         super.loadView()
@@ -21,6 +24,9 @@ class GigsTableViewController: UIViewController {
         navigationItem.rightBarButtonItem =  .init(barButtonSystemItem: .add, target: self, action: #selector(addItem))
         
         tableView = UITableView()
+        tableView.delegate = self
+        let _ = UITableViewCell(style: .subtitle, reuseIdentifier: reuseId)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         
@@ -32,14 +38,14 @@ class GigsTableViewController: UIViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         
-        if let bearer = gigController.bearer {
-            
+        if let bearer = gigController.bearer, !bearer.token.isEmpty {
+            gigController.getAllGigs { result in
+                if let result = try? result.get() {
+                    self.gigs = result
+                }
+            }
         }
         
         let loginViewController = LoginViewController()
@@ -52,14 +58,27 @@ class GigsTableViewController: UIViewController {
         
     }
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension GigsTableViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return gigs.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
+        let gig = gigs[indexPath.row]
+        
+        let df  = DateFormatter()
+        df.dateStyle = .short
+        
+        cell.textLabel?.text = gig.title
+        cell.detailTextLabel?.text = "Due \(df.string(from: gig.dueDate))"
+        
+        return cell
+    }
+    
+    
+    
 }
