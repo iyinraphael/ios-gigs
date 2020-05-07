@@ -70,9 +70,7 @@
 				EB6D10DF24632E5700A2F0EC /* View */,
 				EB6D10CB24632DB000A2F0EC /* AppDelegate.swift */,
 				EB6D10CD24632DB000A2F0EC /* SceneDelegate.swift */,
-				EB6D10D124632DB000A2F0EC /* Main.storyboard */,
 				EB6D10D424632DBB00A2F0EC /* Assets.xcassets */,
-				EB6D10D624632DBB00A2F0EC /* LaunchScreen.storyboard */,
 				EB6D10D924632DBB00A2F0EC /* Info.plist */,
 			);
 			path = "ios-gigs";
@@ -81,6 +79,8 @@
 		EB6D10DF24632E5700A2F0EC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EB6D10D124632DB000A2F0EC /* Main.storyboard */,
+				EB6D10D624632DBB00A2F0EC /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
